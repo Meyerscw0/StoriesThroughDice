@@ -28,13 +28,14 @@ body {
     top: 0;
     overflow-y: auto; /* Adds scrollbar if content is too long */
     border-right: 1px solid #3a3a5a;
+    flex-shrink: 0; /* Prevents sidebar from shrinking */
 }
 
 .content-wrapper {
     flex-grow: 1; /* Takes up the remaining space */
     padding: 40px 50px;
     max-width: 1000px; /* Limits line-length for readability */
-    margin-left: 250px; /* Offset by the sidebar width */
+    /* REMOVED: margin-left: 250px; (display:flex handles this) */
 }
 
 /* --- Sidebar Navigation --- */
@@ -122,6 +123,11 @@ ul li {
 /* --- Chart "Card" Styling --- */
 
 .chart-container {
+    /* === FIX WAS HERE === */
+    width: 90%;
+    max-width: 700px;
+    /* === END FIX === */
+
     background-color: var(--card-color);
     margin: 30px auto 40px auto;
     padding: 25px;
