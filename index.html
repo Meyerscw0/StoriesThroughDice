@@ -23,7 +23,9 @@
             <li><a href="#correlations">4. Correlations</a></li>
             <li><a href="#self-reflection">5. Self-Reflection</a></li>
             <li><a href="#analysis-conclusion">6. Analysis Conclusion</a></li>
-            <li><a href="#project-reflections">7. Project Reflections</a></li> <li><a href="#final-conclusion">8. Final Conclusion</a></li>   </ul>
+            <li><a href="#project-reflections">7. Project Reflections</a></li>
+            <li><a href="#final-conclusion">8. Final Conclusion</a></li>
+        </ul>
     </nav>
 
     <main class="content-wrapper">
@@ -37,6 +39,18 @@
 
         <section id="demographics">
             <h2>1. Who Our Players Are (Demographics)</h2>
+            <p>Understanding the makeup of the group helps contextualize the creative patterns that appear later. The players were young, diverse, and largely inexperienced, which created a collaborative environment where everyone was discovering the game together.</p>
+
+            <h3>Experience Level</h3>
+            <div class="chart-container">
+                <canvas id="experienceChart"></canvas>
+            </div>
+
+            <h3>Age Range</h3>
+            <div class="chart-container">
+                <canvas id="ageChart"></canvas>
+            </div>
+
             <h3>Gender Identity</h3>
             <div class="chart-container">
                 <canvas id="genderChart"></canvas>
@@ -46,6 +60,13 @@
 
         <section id="choices">
             <h2>2. What They’re Playing (Character Choices)</h2>
+            <p>Participants selected a wide range of character races and classes. New players especially gravitated toward familiar fantasy archetypes such as elves and half-elves, while more experienced players tended to experiment more broadly.</p>
+            
+            <h3>Character Race</h3>
+            <div class="chart-container">
+                <canvas id="raceChart"></canvas>
+            </div>
+
             <h3>Character Class</h3>
             <div class="chart-container">
                 <canvas id="classChart"></canvas>
@@ -54,9 +75,14 @@
 
         <section id="motivations">
             <h2>3. Why They’re Playing (Motivations)</h2>
+            <p>Participants selected their motivations for character creation, and their responses were deeply personal.</p>
+            
+            <h3>Character Motivations</h3>
             <div class="chart-container">
                 <canvas id="motivationChart"></canvas>
             </div>
+
+            <p>These results suggest that D&D serves as a flexible space for:</p>
             <ul>
                 <li>storytelling,</li>
                 <li>character expression,</li>
@@ -68,19 +94,99 @@
 
         <section id="correlations">
             <h2>4. Identity-Based Correlations (Respectful Analysis)</h2>
+            <p>Beyond the basic data, several meaningful correlations emerged when comparing character choices with gender identity, LGBTQ+ identity, and experience level. These are not generalizations about any population—they reflect patterns specific to this dataset and offer insight into how these particular players approach storytelling.</p>
+
+            <h3>LGBTQ+ Players</h3>
+            <p>LGBTQ+ respondents (a majority of the group) consistently gravitated toward:</p>
+            <ul>
+                <li>half-elves, tieflings, genasi, and warforged</li>
+                <li>bards, druids, clerics, rangers, and paladins</li>
+                <li>themes of representation, redemption, identity exploration, and emotional healing</li>
+            </ul>
+            <p>These races often embody liminality or being “between worlds,” which resonated strongly with queer respondents who described their characters as:</p>
+            <ul>
+                <li>exploring family acceptance,</li>
+                <li>navigating mixed identities,</li>
+                <li>reflecting emotional resilience,</li>
+                <li>or representing parts of themselves they are still discovering.</li>
+            </ul>
+            <p>This group also showed higher self-reflection scores, often rating their characters as deeply connected to their real selves.</p>
+
+            <h3>Women & Transfeminine Players</h3>
+            <p>Women in the study tended toward:</p>
+            <ul>
+                <li>elves, half-elves, and druids/bards/rangers</li>
+                <li>caretaker roles</li>
+                <li>family-connected backstories</li>
+                <li>characters driven by emotional depth or creativity</li>
+            </ul>
+            <p>Their characters frequently explored themes like:</p>
+            <ul>
+                <li>nurturing others,</li>
+                <li>artistic struggle,</li>
+                <li>grief and healing,</li>
+                <li>or reclaiming identity after hardship.</li>
+            </ul>
+
+            <h3>Men (cis and transmasc respondents)</h3>
+            <p>Men in the group—both LGBTQ+ and not—often created:</p>
+            <ul>
+                <li>fighters, paladins, barbarians</li>
+                <li>tieflings, goblins, elves</li>
+                <li>characters wrestling with guilt, duty, or redemption</li>
+            </ul>
+            <p>A notable pattern: Their character arcs often centered on emotional restraint gradually giving way to healing.</p>
+
+            <h3>Nonbinary & Genderfluid Players</h3>
+            <p>These players tended toward:</p>
+            <ul>
+                <li>unconventional races (warforged, dwarf, genasi)</li>
+                <li>classes associated with creativity or spirituality</li>
+                <li>motivation: exploring identity, expression, or self-understanding</li>
+            </ul>
+            <p>Their stories often expressed:</p>
+            <ul>
+                <li>finding or defining one’s voice,</li>
+                <li>navigating vulnerability,</li>
+                <li>processing emotions,</li>
+                <li>or searching for belonging.</li>
+            </ul>
+
             <h3>Experience Level</h3>
             <p>A compelling correlation emerged: <strong>Beginners had the highest emotional depth.</strong></p>
             <p>Players with less than a year of experience had the highest self-reflection score (average 5.0) and the longest or most detailed emotional backstories.</p>
+            <p>Experienced players tended to:</p>
+            <ul>
+                <li>create more humorous, chaotic, or “vibes-driven” characters</li>
+                <li>explore mechanics, class quirks, or roleplay tropes</li>
+                <li>put less of their real self directly into the character</li>
+            </ul>
+            <p>Both groups showed creativity—just in different directions.</p>
         </section>
 
         <section id="self-reflection">
             <h2>5. Self-Reflection & What Surprised Players</h2>
+            <p>Participants rated how much their character reflected their real self.</p>
+
+            <h3>Self-Reflection Scores</h3>
+            <div class="chart-container">
+                <canvas id="reflectionScoreChart"></canvas>
+            </div>
+
             <h3>Average Reflection by Experience</h3>
             <div class="chart-container">
                 <canvas id="avgReflectionChart"></canvas>
             </div>
+
             <h4>Interpretation</h4>
             <p>This dataset suggests that newer players use character creation as an immediate form of self-expression, while experienced players use it to experiment with archetypes, humor, or familiar tropes.</p>
+            <p>LGBTQ+ respondents in particular were more likely to:</p>
+            <ul>
+                <li>embed aspects of their real lives</li>
+                <li>explore identity themes</li>
+                <li>process emotional experiences</li>
+            </ul>
+            <p>This aligns with academic findings on TTRPGs as tools for identity exploration.</p>
         </section>
         
         <section id="analysis-conclusion">
