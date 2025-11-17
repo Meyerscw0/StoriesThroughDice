@@ -1,5 +1,16 @@
-// Wait for the DOM to be fully loaded before trying to create charts
 document.addEventListener("DOMContentLoaded", () => {
+
+    // --- Global Chart Styling for Dark Mode ---
+    Chart.defaults.color = '#e0e0f0'; // Default font color
+    Chart.defaults.borderColor = '#3a3a5a'; // Grid line colors
+
+    // --- Custom Color Palettes ---
+    const palette1 = ['#00ffff', '#ff00ff', '#00ff00', '#ffff00', '#ff8000'];
+    const palette2 = ['#ff6384', '#36a2eb', '#ffce56', '#4bc0c0', '#9966ff', '#ff9f40'];
+    const palette3 = [
+        '#6a00f4', '#f9009a', '#00f2a4', '#fef200', '#f85f00', 
+        '#00c0f4', '#c000f4', '#f40000', '#00f440'
+    ];
 
     // --- 1. Experience Level (Bar Chart) ---
     const expCtx = document.getElementById('experienceChart').getContext('2d');
@@ -10,11 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
             datasets: [{
                 label: 'Count',
                 data: [5, 3, 3, 3, 1],
-                backgroundColor: '#3498db',
+                backgroundColor: palette1[0], // Single color
             }]
         },
         options: {
-            scales: { y: { beginAtZero: true, title: { display: true, text: 'Number of Players' } } },
+            scales: { 
+                y: { beginAtZero: true, title: { display: true, text: 'Number of Players' } },
+                x: { ticks: { color: '#e0e0f0' } } // X-axis labels
+            },
             plugins: { legend: { display: false } }
         }
     });
@@ -28,11 +42,14 @@ document.addEventListener("DOMContentLoaded", () => {
             datasets: [{
                 label: 'Count',
                 data: [8, 5, 2],
-                backgroundColor: '#2ecc71',
+                backgroundColor: palette1[1], // Single color
             }]
         },
         options: {
-            scales: { y: { beginAtZero: true, title: { display: true, text: 'Number of Players' } } },
+            scales: { 
+                y: { beginAtZero: true, title: { display: true, text: 'Number of Players' } },
+                x: { ticks: { color: '#e0e0f0' } }
+            },
             plugins: { legend: { display: false } }
         }
     });
@@ -46,12 +63,12 @@ document.addEventListener("DOMContentLoaded", () => {
             datasets: [{
                 label: 'Count',
                 data: [5, 5, 3, 1, 1],
-                backgroundColor: ['#9b59b6', '#e74c3c', '#f1c40f', '#1abc9c', '#e67e22'],
+                backgroundColor: palette2, // Full palette
             }]
         },
         options: {
             responsive: true,
-            plugins: { legend: { position: 'top' } }
+            plugins: { legend: { position: 'top', labels: { color: '#e0e0f0' } } }
         }
     });
 
@@ -64,12 +81,15 @@ document.addEventListener("DOMContentLoaded", () => {
             datasets: [{
                 label: 'Count',
                 data: [4, 3, 2, 1, 1, 1, 1, 1, 1],
-                backgroundColor: '#e74c3c',
+                backgroundColor: palette3, // Full palette for variety
             }]
         },
         options: {
             indexAxis: 'y',
-            scales: { x: { beginAtZero: true, title: { display: true, text: 'Number of Players' } } },
+            scales: { 
+                x: { beginAtZero: true, title: { display: true, text: 'Number of Players' } },
+                y: { ticks: { color: '#e0e0f0' } }
+            },
             plugins: { legend: { display: false } }
         }
     });
@@ -83,48 +103,47 @@ document.addEventListener("DOMContentLoaded", () => {
             datasets: [{
                 label: 'Count',
                 data: [3, 2, 2, 2, 2, 2, 1, 1],
-                backgroundColor: '#16a085',
+                backgroundColor: palette1[2], // Single color
             }]
         },
         options: {
             indexAxis: 'y',
-            scales: { x: { beginAtZero: true, title: { display: true, text: 'Number of Players' } } },
+            scales: { 
+                x: { beginAtZero: true, title: { display: true, text: 'Number of Players' } },
+                y: { ticks: { color: '#e0e0f0' } }
+            },
             plugins: { legend: { display: false } }
         }
     });
 
-    // --- 6. [NEW] Character Motivations (Horizontal Bar Chart) ---
-    // Horizontal is best for long labels
+    // --- 6. Character Motivations (Horizontal Bar Chart) ---
     const motivationCtx = document.getElementById('motivationChart').getContext('2d');
     new Chart(motivationCtx, {
         type: 'bar',
         data: {
             labels: [
-                'Story concept (revenge, redemption, etc.)', 
-                'Representation / identity', 
-                'Aesthetics / design', 
-                'Escaping real-life stress', 
-                'Combat ability', 
-                'Roleplay potential', 
-                'Vibes', 
-                'Exploring a new side of myself', 
-                'Humor or chaos', 
-                'Exploring identity'
+                'Story concept (revenge, redemption, etc.)', 'Representation / identity', 
+                'Aesthetics / design', 'Escaping real-life stress', 'Combat ability', 
+                'Roleplay potential', 'Vibes', 'Exploring a new side of myself', 
+                'Humor or chaos', 'Exploring identity'
             ],
             datasets: [{
                 label: 'Count',
                 data: [5, 3, 3, 3, 3, 2, 2, 1, 1, 1],
-                backgroundColor: '#8e44ad',
+                backgroundColor: palette2, // Full palette
             }]
         },
         options: {
             indexAxis: 'y',
-            scales: { x: { beginAtZero: true, title: { display: true, text: 'Number of Players' } } },
+            scales: { 
+                x: { beginAtZero: true, title: { display: true, text: 'Number of Players' } },
+                y: { ticks: { color: '#e0e0f0' } }
+            },
             plugins: { legend: { display: false } }
         }
     });
 
-    // --- 7. [NEW] Self-Reflection Scores (Bar Chart) ---
+    // --- 7. Self-Reflection Scores (Bar Chart) ---
     const reflectionScoreCtx = document.getElementById('reflectionScoreChart').getContext('2d');
     new Chart(reflectionScoreCtx, {
         type: 'bar',
@@ -133,16 +152,19 @@ document.addEventListener("DOMContentLoaded", () => {
             datasets: [{
                 label: 'Count',
                 data: [1, 0, 2, 3, 1, 7],
-                backgroundColor: '#f39c12',
+                backgroundColor: palette1[3], // Single color
             }]
         },
         options: {
-            scales: { y: { beginAtZero: true, title: { display: true, text: 'Number of Players' } } },
+            scales: { 
+                y: { beginAtZero: true, title: { display: true, text: 'Number of Players' } },
+                x: { ticks: { color: '#e0e0f0' } }
+            },
             plugins: { legend: { display: false } }
         }
     });
 
-    // --- 8. [NEW] Average Reflection by Experience (Bar Chart) ---
+    // --- 8. Average Reflection by Experience (Bar Chart) ---
     const avgReflectionCtx = document.getElementById('avgReflectionChart').getContext('2d');
     new Chart(avgReflectionCtx, {
         type: 'bar',
@@ -150,17 +172,14 @@ document.addEventListener("DOMContentLoaded", () => {
             labels: ['Less than 1 year', '4–7 years', 'First time!', '1–2 years', '5+ years'],
             datasets: [{
                 label: 'Average Score',
-                // Chart.js handles 'null' to show gaps for the NaN data
                 data: [5.0, 4.0, 3.0, null, null],
-                backgroundColor: '#d35400',
+                backgroundColor: palette1[4], // Single color
             }]
         },
         options: {
             scales: { 
-                y: { 
-                    beginAtZero: true, 
-                    title: { display: true, text: 'Avg. Reflection Score (1-5)' } 
-                } 
+                y: { beginAtZero: true, title: { display: true, text: 'Avg. Reflection Score (1-5)' } },
+                x: { ticks: { color: '#e0e0f0' } }
             },
             plugins: { legend: { display: false } }
         }
