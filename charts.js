@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     // --- Global Chart Styling for Dark Mode ---
-    Chart.defaults.color = '#e0e0f0'; // Default font color
-    Chart.defaults.borderColor = '#3a3a5a'; // Grid line colors
+    // This sets the color for all text (labels, titles, legends)
+    Chart.defaults.color = '#e0e0f0'; 
+    // This sets the color for all grid lines
+    Chart.defaults.borderColor = '#3a3a5a'; 
 
     // --- Custom Color Palettes ---
     const palette1 = ['#00ffff', '#ff00ff', '#00ff00', '#ffff00', '#ff8000'];
@@ -21,13 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
             datasets: [{
                 label: 'Count',
                 data: [5, 3, 3, 3, 1],
-                backgroundColor: palette1[0], // Single color
+                backgroundColor: palette1[0],
             }]
         },
         options: {
             scales: { 
                 y: { beginAtZero: true, title: { display: true, text: 'Number of Players' } },
-                x: { ticks: { color: '#e0e0f0' } } // X-axis labels
             },
             plugins: { legend: { display: false } }
         }
@@ -42,13 +43,12 @@ document.addEventListener("DOMContentLoaded", () => {
             datasets: [{
                 label: 'Count',
                 data: [8, 5, 2],
-                backgroundColor: palette1[1], // Single color
+                backgroundColor: palette1[1],
             }]
         },
         options: {
             scales: { 
                 y: { beginAtZero: true, title: { display: true, text: 'Number of Players' } },
-                x: { ticks: { color: '#e0e0f0' } }
             },
             plugins: { legend: { display: false } }
         }
@@ -63,12 +63,12 @@ document.addEventListener("DOMContentLoaded", () => {
             datasets: [{
                 label: 'Count',
                 data: [5, 5, 3, 1, 1],
-                backgroundColor: palette2, // Full palette
+                backgroundColor: palette2,
             }]
         },
         options: {
             responsive: true,
-            plugins: { legend: { position: 'top', labels: { color: '#e0e0f0' } } }
+            plugins: { legend: { position: 'top' } }
         }
     });
 
@@ -81,14 +81,13 @@ document.addEventListener("DOMContentLoaded", () => {
             datasets: [{
                 label: 'Count',
                 data: [4, 3, 2, 1, 1, 1, 1, 1, 1],
-                backgroundColor: palette3, // Full palette for variety
+                backgroundColor: palette3,
             }]
         },
         options: {
             indexAxis: 'y',
             scales: { 
                 x: { beginAtZero: true, title: { display: true, text: 'Number of Players' } },
-                y: { ticks: { color: '#e0e0f0' } }
             },
             plugins: { legend: { display: false } }
         }
@@ -103,14 +102,13 @@ document.addEventListener("DOMContentLoaded", () => {
             datasets: [{
                 label: 'Count',
                 data: [3, 2, 2, 2, 2, 2, 1, 1],
-                backgroundColor: palette1[2], // Single color
+                backgroundColor: palette1[2],
             }]
         },
         options: {
             indexAxis: 'y',
             scales: { 
                 x: { beginAtZero: true, title: { display: true, text: 'Number of Players' } },
-                y: { ticks: { color: '#e0e0f0' } }
             },
             plugins: { legend: { display: false } }
         }
@@ -130,14 +128,13 @@ document.addEventListener("DOMContentLoaded", () => {
             datasets: [{
                 label: 'Count',
                 data: [5, 3, 3, 3, 3, 2, 2, 1, 1, 1],
-                backgroundColor: palette2, // Full palette
+                backgroundColor: palette2,
             }]
         },
         options: {
             indexAxis: 'y',
             scales: { 
                 x: { beginAtZero: true, title: { display: true, text: 'Number of Players' } },
-                y: { ticks: { color: '#e0e0f0' } }
             },
             plugins: { legend: { display: false } }
         }
@@ -152,13 +149,12 @@ document.addEventListener("DOMContentLoaded", () => {
             datasets: [{
                 label: 'Count',
                 data: [1, 0, 2, 3, 1, 7],
-                backgroundColor: palette1[3], // Single color
+                backgroundColor: palette1[3],
             }]
         },
         options: {
             scales: { 
                 y: { beginAtZero: true, title: { display: true, text: 'Number of Players' } },
-                x: { ticks: { color: '#e0e0f0' } }
             },
             plugins: { legend: { display: false } }
         }
@@ -173,13 +169,12 @@ document.addEventListener("DOMContentLoaded", () => {
             datasets: [{
                 label: 'Average Score',
                 data: [5.0, 4.0, 3.0, null, null],
-                backgroundColor: palette1[4], // Single color
+                backgroundColor: palette1[4],
             }]
         },
         options: {
             scales: { 
                 y: { beginAtZero: true, title: { display: true, text: 'Avg. Reflection Score (1-5)' } },
-                x: { ticks: { color: '#e0e0f0' } }
             },
             plugins: { legend: { display: false } }
         }
