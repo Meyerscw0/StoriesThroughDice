@@ -1,11 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // --- Global Chart Styling for Dark Mode ---
-    // This sets the color for all text (labels, titles, legends)
-    Chart.defaults.color = '#e0e0f0'; 
-    // This sets the color for all grid lines
-    Chart.defaults.borderColor = '#3a3a5a'; 
-
     // --- Custom Color Palettes ---
     const palette1 = ['#00ffff', '#ff00ff', '#00ff00', '#ffff00', '#ff8000'];
     const palette2 = ['#ff6384', '#36a2eb', '#ffce56', '#4bc0c0', '#9966ff', '#ff9f40'];
@@ -13,6 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
         '#6a00f4', '#f9009a', '#00f2a4', '#fef200', '#f85f00', 
         '#00c0f4', '#c000f4', '#f40000', '#00f440'
     ];
+    
+    // --- Shared Color Settings ---
+    const textColor = '#e0e0f0';
+    const gridColor = '#3a3a5a';
 
     // --- 1. Experience Level (Bar Chart) ---
     const expCtx = document.getElementById('experienceChart').getContext('2d');
@@ -28,7 +26,16 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         options: {
             scales: { 
-                y: { beginAtZero: true, title: { display: true, text: 'Number of Players' } },
+                y: { 
+                    beginAtZero: true, 
+                    title: { display: true, text: 'Number of Players', color: textColor },
+                    ticks: { color: textColor },
+                    grid: { color: gridColor }
+                },
+                x: {
+                    ticks: { color: textColor },
+                    grid: { color: gridColor }
+                }
             },
             plugins: { legend: { display: false } }
         }
@@ -48,7 +55,16 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         options: {
             scales: { 
-                y: { beginAtZero: true, title: { display: true, text: 'Number of Players' } },
+                y: { 
+                    beginAtZero: true, 
+                    title: { display: true, text: 'Number of Players', color: textColor },
+                    ticks: { color: textColor },
+                    grid: { color: gridColor }
+                },
+                x: {
+                    ticks: { color: textColor },
+                    grid: { color: gridColor }
+                }
             },
             plugins: { legend: { display: false } }
         }
@@ -68,7 +84,12 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         options: {
             responsive: true,
-            plugins: { legend: { position: 'top' } }
+            plugins: { 
+                legend: { 
+                    position: 'top',
+                    labels: { color: textColor }
+                } 
+            }
         }
     });
 
@@ -87,7 +108,16 @@ document.addEventListener("DOMContentLoaded", () => {
         options: {
             indexAxis: 'y',
             scales: { 
-                x: { beginAtZero: true, title: { display: true, text: 'Number of Players' } },
+                x: { 
+                    beginAtZero: true, 
+                    title: { display: true, text: 'Number of Players', color: textColor },
+                    ticks: { color: textColor },
+                    grid: { color: gridColor }
+                },
+                y: {
+                    ticks: { color: textColor },
+                    grid: { color: gridColor }
+                }
             },
             plugins: { legend: { display: false } }
         }
@@ -108,7 +138,16 @@ document.addEventListener("DOMContentLoaded", () => {
         options: {
             indexAxis: 'y',
             scales: { 
-                x: { beginAtZero: true, title: { display: true, text: 'Number of Players' } },
+                x: { 
+                    beginAtZero: true, 
+                    title: { display: true, text: 'Number of Players', color: textColor },
+                    ticks: { color: textColor },
+                    grid: { color: gridColor }
+                },
+                y: {
+                    ticks: { color: textColor },
+                    grid: { color: gridColor }
+                }
             },
             plugins: { legend: { display: false } }
         }
@@ -134,7 +173,16 @@ document.addEventListener("DOMContentLoaded", () => {
         options: {
             indexAxis: 'y',
             scales: { 
-                x: { beginAtZero: true, title: { display: true, text: 'Number of Players' } },
+                x: { 
+                    beginAtZero: true, 
+                    title: { display: true, text: 'Number of Players', color: textColor },
+                    ticks: { color: textColor },
+                    grid: { color: gridColor }
+                },
+                y: {
+                    ticks: { color: textColor },
+                    grid: { color: gridColor }
+                }
             },
             plugins: { legend: { display: false } }
         }
@@ -154,7 +202,16 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         options: {
             scales: { 
-                y: { beginAtZero: true, title: { display: true, text: 'Number of Players' } },
+                y: { 
+                    beginAtZero: true, 
+                    title: { display: true, text: 'Number of Players', color: textColor },
+                    ticks: { color: textColor },
+                    grid: { color: gridColor }
+                },
+                x: {
+                    ticks: { color: textColor },
+                    grid: { color: gridColor }
+                }
             },
             plugins: { legend: { display: false } }
         }
@@ -174,7 +231,16 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         options: {
             scales: { 
-                y: { beginAtZero: true, title: { display: true, text: 'Avg. Reflection Score (1-5)' } },
+                y: { 
+                    beginAtZero: true, 
+                    title: { display: true, text: 'Avg. Reflection Score (1-5)', color: textColor },
+                    ticks: { color: textColor },
+                    grid: { color: gridColor }
+                },
+                x: {
+                    ticks: { color: textColor },
+                    grid: { color: gridColor }
+                }
             },
             plugins: { legend: { display: false } }
         }
