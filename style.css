@@ -10,7 +10,7 @@
     --dice-gradient: linear-gradient(90deg, var(--accent-color), #ff00ff);
 }
 
-/* --- ANIMATIONS (NEW) --- */
+/* --- ANIMATIONS (Dice) --- */
 @keyframes float {
     0% { transform: translate(0, 0) rotate(0deg); }
     50% { transform: translate(15vw, -5vh) rotate(180deg); }
@@ -25,7 +25,43 @@
     to { transform: rotate(360deg); }
 }
 
-/* --- BACKGROUND DICE LAYER (NEW) --- */
+/* --- CORE LAYOUT & SIDEBAR FIX --- */
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex; /* CRUCIAL: Enables sidebar and content side-by-side */
+}
+
+/* Ensure the content is always on top of the background */
+.sidebar, .content-wrapper { 
+    z-index: 10; 
+    position: relative; /* Needed for z-index to work */
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 250px;
+    background-color: var(--card-color);
+    padding: 20px;
+    height: 100vh;
+    position: sticky; /* Keeps the menu fixed as content scrolls */
+    top: 0;
+    overflow-y: auto;
+    border-right: 1px solid #3a3a5a;
+    flex-shrink: 0;
+}
+
+/* Main Content Area */
+.content-wrapper {
+    flex-grow: 1;
+    padding: 40px 50px;
+    max-width: 1400px;
+}
+
+/* --- BACKGROUND DICE LAYER --- */
 .dice-background {
     position: fixed;
     top: 0;
@@ -33,105 +69,52 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: -1; /* Pushes it behind the main content */
-    opacity: 0.25; /* Subtle transparency */
-    pointer-events: none; /* Allows mouse clicks through */
+    z-index: -1; /* Pushes it behind everything */
+    opacity: 0.25;
+    pointer-events: none;
 }
-
 .die {
     position: absolute;
     border-style: solid;
     border-width: 2px;
     opacity: 0.7;
     animation: float 20s linear infinite alternate, spin 10s linear infinite;
-}
-
-/* Apply gradient to the border */
-.die {
     border-image-source: var(--dice-gradient);
     border-image-slice: 1;
 }
+.d20 { width: 150px; height: 150px; top: 10%; left: 5%; border-radius: 50%; animation-duration: 30s; animation-timing-function: ease-in-out; }
+.d12 { width: 100px; height: 100px; top: 60%; left: 80%; border-radius: 20%; animation: float-reverse 25s linear infinite alternate, spin 15s linear infinite; }
+.d8 { width: 50px; height: 50px; top: 85%; left: 15%; border-radius: 0; animation-duration: 18s; }
+.d4 { width: 0; height: 0; border-left: 50px solid transparent; border-right: 50px solid transparent; border-bottom: 80px solid; top: 25%; right: 15%; animation: float 40s linear infinite alternate, spin 5s linear infinite reverse; }
 
-/* D20 - Large Octagon/Circle */
-.d20 {
-    width: 150px;
-    height: 150px;
-    top: 10%;
-    left: 5%;
-    border-radius: 50%;
-    animation-duration: 30s;
-    animation-timing-function: ease-in-out;
-}
 
-/* D12 - Diamond shape */
-.d12 {
-    width: 100px;
-    height: 100px;
-    top: 60%;
-    left: 80%;
-    border-radius: 20%;
-    animation: float-reverse 25s linear infinite alternate, spin 15s linear infinite;
-}
+/* --- NAVIGATION & TYPOGRAPHY STYLES --- */
+.sidebar h2 { color: var(--accent-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 10px; }
+.sidebar ul { list-style: none; padding: 0; }
+.sidebar li { margin: 15px 0; }
+.sidebar a { color: var(--text-color); text-decoration: none; transition: all 0.2s ease; }
+.sidebar a:hover { color: var(--accent-color); padding-left: 5px; }
 
-/* D8 - Small Square */
-.d8 {
-    width: 50px;
-    height: 50px;
-    top: 85%;
-    left: 15%;
-    border-radius: 0;
-    animation-duration: 18s;
-}
-
-/* D4 - Triangle */
-.d4 {
-    width: 0;
-    height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-bottom: 80px solid; /* Only border-bottom gets the gradient effect */
-    top: 25%;
-    right: 15%;
-    animation: float 40s linear infinite alternate, spin 5s linear infinite reverse;
-}
-
-/* --- EXISTING LAYOUT (Modified to ensure content is above dice) --- */
-body {
-    font-family: var(--font-main);
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-.sidebar, .content-wrapper { 
-    z-index: 10; /* Ensures content is above the z-index: -1 dice */
-    position: relative; 
-}
-.sidebar {
-    width: 250px;
-    background-color: var(--card-color);
-    padding: 20px;
-    height: 100vh;
-    position: sticky;
-    top: 0;
-    overflow-y: auto;
-    border-right: 1px solid #3a3a5a;
-    flex-shrink: 0;
-}
-.content-wrapper {
-    flex-grow: 1;
-    padding: 40px 50px;
-    max-width: 1400px;
-}
-/* ... all other existing styles ... */
+h1, h2, h3 { color: var(--heading-color); font-weight: 700; margin-bottom: 0.5em; }
 h1 {
     font-size: 2.5rem;
     border-bottom: 1px solid #3a3a5a;
     padding-bottom: 15px;
-    /* The h1 gradient colors match the dice! */
     background: linear-gradient(90deg, var(--accent-color), #ff00ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-/* ... rest of existing styles ... */
+h2 { color: var(--accent-color); margin-top: 40px; border-bottom: 1px solid #3a3a5a; }
+p, li { line-height: 1.7; font-weight: 300; }
+
+/* Chart Container Styling */
+.chart-container {
+    width: 90%;
+    max-width: 800px;
+    background-color: var(--card-color);
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border: 1px solid #3a3a5a;
+}
