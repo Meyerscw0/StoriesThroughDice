@@ -77,16 +77,45 @@ body {
     position: absolute;
     border-style: solid;
     border-width: 2px;
+    border-color: var(--accent-color); /* Add this */
     opacity: 0.7;
     animation: float 20s linear infinite alternate, spin 10s linear infinite;
-    border-image-source: var(--dice-gradient);
-    border-image-slice: 1;
 }
-.d20 { width: 150px; height: 150px; top: 10%; left: 5%; border-radius: 50%; animation-duration: 30s; animation-timing-function: ease-in-out; }
-.d12 { width: 100px; height: 100px; top: 60%; left: 80%; border-radius: 20%; animation: float-reverse 25s linear infinite alternate, spin 15s linear infinite; }
-.d8 { width: 50px; height: 50px; top: 85%; left: 15%; border-radius: 0; animation-duration: 18s; }
-.d4 { width: 0; height: 0; border-left: 50px solid transparent; border-right: 50px solid transparent; border-bottom: 80px solid; top: 25%; right: 15%; animation: float 40s linear infinite alternate, spin 5s linear infinite reverse; }
-
+.d20 { 
+    width: 150px; 
+    height: 150px; 
+    top: 10%; 
+    left: 5%; 
+    border-radius: 50%; 
+    animation-duration: 30s; 
+    animation-timing-function: ease-in-out; 
+}
+.d12 { 
+    width: 100px; 
+    height: 100px; 
+    top: 60%; 
+    left: 80%; 
+    border-radius: 20%; 
+    animation: float-reverse 25s linear infinite alternate, spin 15s linear infinite; 
+}
+.d8 { 
+    width: 50px; 
+    height: 50px; 
+    top: 85%; 
+    left: 15%; 
+    border-radius: 0; 
+    animation-duration: 18s; 
+}
+.d4 { 
+    width: 0; 
+    height: 0; 
+    border-left: 50px solid transparent; 
+    border-right: 50px solid transparent; 
+    border-bottom: 80px solid var(--accent-color); /* Add color here */
+    top: 25%; 
+    right: 15%; 
+    animation: float 40s linear infinite alternate, spin 10s linear infinite; /* Fixed spin duration */
+}
 
 /* --- NAVIGATION & TYPOGRAPHY STYLES --- */
 .sidebar h2 { color: var(--accent-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 10px; }
