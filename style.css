@@ -16,11 +16,13 @@
     50% { transform: translate(15vw, -5vh) rotate(180deg); }
     100% { transform: translate(0, 0) rotate(360deg); }
 }
+
 @keyframes float-reverse {
     0% { transform: translate(0, 0) rotate(360deg); }
     50% { transform: translate(-10vw, 8vh) rotate(180deg); }
     100% { transform: translate(0, 0) rotate(0deg); }
 }
+
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
@@ -36,8 +38,8 @@ body {
 }
 
 /* Ensure the content is always on top of the background */
-.sidebar, .content-wrapper { 
-    z-index: 10; 
+.sidebar, .content-wrapper {
+    z-index: 10;
     position: relative; /* Needed for z-index to work */
 }
 
@@ -73,7 +75,8 @@ body {
     opacity: 0.25;
     pointer-events: none;
 }
-.die {
+
+die {
     position: absolute;
     border-style: solid;
     border-width: 2px;
@@ -81,50 +84,135 @@ body {
     opacity: 0.7;
     animation: float 20s linear infinite alternate, spin 10s linear infinite;
 }
-.d20 { 
-    width: 150px; 
-    height: 150px; 
-    top: 10%; 
-    left: 5%; 
-    border-radius: 50%; 
-    animation-duration: 30s; 
-    animation-timing-function: ease-in-out; 
+
+d20 {
+    width: 150px;
+    height: 150px;
+    top: 10%;
+    left: 5%;
+    border-radius: 50%;
+    animation-duration: 30s;
+    animation-timing-function: ease-in-out;
 }
-.d12 { 
-    width: 100px; 
-    height: 100px; 
-    top: 60%; 
-    left: 80%; 
-    border-radius: 20%; 
-    animation: float-reverse 25s linear infinite alternate, spin 15s linear infinite; 
+
+d20-alt {
+    width: 120px;
+    height: 120px;
+    top: 45%;
+    right: 10%;
+    border-radius: 50%;
+    animation-duration: 35s;
+    animation-timing-function: ease-in-out;
 }
-.d8 { 
-    width: 50px; 
-    height: 50px; 
-    top: 85%; 
-    left: 15%; 
-    border-radius: 0; 
-    animation-duration: 18s; 
+
+d12 {
+    width: 100px;
+    height: 100px;
+    top: 60%;
+    left: 80%;
+    border-radius: 20%;
+    animation: float-reverse 25s linear infinite alternate, spin 15s linear infinite;
 }
-.d4 { 
-    width: 0; 
-    height: 0; 
-    border-left: 50px solid transparent; 
-    border-right: 50px solid transparent; 
+
+d12-alt {
+    width: 80px;
+    height: 80px;
+    top: 20%;
+    right: 5%;
+    border-radius: 20%;
+    animation: float-reverse 28s linear infinite alternate, spin 18s linear infinite;
+}
+
+d8 {
+    width: 50px;
+    height: 50px;
+    top: 85%;
+    left: 15%;
+    border-radius: 0;
+    animation-duration: 18s;
+}
+
+d8-alt {
+    width: 60px;
+    height: 60px;
+    top: 50%;
+    right: 40%;
+    border-radius: 0;
+    animation-duration: 22s;
+}
+
+d8-alt-2 {
+    width: 70px;
+    height: 70px;
+    top: 30%;
+    left: 50%;
+    border-radius: 0;
+    animation: float-reverse 20s linear infinite alternate, spin 12s linear infinite;
+}
+
+d4 {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
     border-bottom: 80px solid var(--accent-color); /* Add color here */
-    top: 25%; 
-    right: 15%; 
+    top: 25%;
+    right: 15%;
     animation: float 40s linear infinite alternate, spin 10s linear infinite; /* Fixed spin duration */
 }
 
-/* --- NAVIGATION & TYPOGRAPHY STYLES --- */
-.sidebar h2 { color: var(--accent-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 10px; }
-.sidebar ul { list-style: none; padding: 0; }
-.sidebar li { margin: 15px 0; }
-.sidebar a { color: var(--text-color); text-decoration: none; transition: all 0.2s ease; }
-.sidebar a:hover { color: var(--accent-color); padding-left: 5px; }
+d4-alt {
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 65px solid var(--accent-color);
+    top: 70%;
+    left: 30%;
+    animation: float 35s linear infinite alternate, spin 14s linear infinite;
+}
 
-h1, h2, h3 { color: var(--heading-color); font-weight: 700; margin-bottom: 0.5em; }
+d6 {
+    width: 75px;
+    height: 75px;
+    top: 15%;
+    left: 70%;
+    border-radius: 8px;
+    background: none;
+    border: 2px solid var(--accent-color);
+    animation: float 25s linear infinite alternate, spin 16s linear infinite;
+}
+
+/* --- NAVIGATION & TYPOGRAPHY STYLES --- */
+.sidebar h2 {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 15px 0;
+}
+
+.sidebar a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+.sidebar a:hover {
+    color: var(--accent-color);
+    padding-left: 5px;
+}
+h1, h2, h3 {
+    color: var(--heading-color);
+    font-weight: 700;
+    margin-bottom: 0.5em;
+}
 h1 {
     font-size: 2.5rem;
     border-bottom: 1px solid #3a3a5a;
@@ -133,9 +221,15 @@ h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-h2 { color: var(--accent-color); margin-top: 40px; border-bottom: 1px solid #3a3a5a; }
-p, li { line-height: 1.7; font-weight: 300; }
-
+h2 {
+    color: var(--accent-color);
+    margin-top: 40px;
+    border-bottom: 1px solid #3a3a5a;
+}
+p, li {
+    line-height: 1.7;
+    font-weight: 300;
+}
 /* Chart Container Styling */
 .chart-container {
     width: 90%;
