@@ -1,0 +1,38 @@
+:root {
+    --bg-paper: #f3e5d0;
+    --bg-dark: #2c1b18;
+    --ink-color: #2b1b17;
+    --accent-red: #8a0303;
+    --accent-gold: #c5a059;
+    --font-header: 'Cinzel', serif;
+    --font-body: 'Fauna One', serif;
+}
+body {
+    background-color: var(--bg-dark);
+    background-image: radial-gradient(#3e2b26 1px, transparent 1px);
+    background-size: 20px 20px;
+    color: var(--ink-color);
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 20px;
+}
+.main-container { max-width: 1200px; margin: 0 auto; }
+.scroll-header { text-align: center; margin-bottom: 40px; color: #fff; }
+.scroll-header h1 { font-family: var(--font-header); font-size: 3rem; border-bottom: 2px solid var(--accent-gold); display: inline-block; }
+.return-link { color: var(--accent-gold); text-decoration: none; font-size: 1.2rem; border: 1px solid var(--accent-gold); padding: 10px; border-radius: 5px; }
+.return-link:hover { background-color: var(--accent-gold); color: var(--bg-dark); }
+
+.journal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+.journal-entry {
+    background-color: var(--bg-paper);
+    padding: 30px;
+    border-radius: 4px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+    border: 1px solid #d1c4b0;
+}
+.full-width { grid-column: 1 / -1; }
+h2 { font-family: var(--font-header); color: var(--accent-red); border-bottom: 2px solid var(--ink-color); }
+h3 { font-family: var(--font-header); font-size: 1.3rem; margin-top: 25px; }
+.rune { color: var(--accent-gold); margin-right: 10px; }
+.col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+@media (max-width: 768px) { .col-2 { grid-template-columns: 1fr; } }
