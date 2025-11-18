@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dungeon Master's Report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Fauna+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fantasy-style.css">
+</head>
+<body>
+    <div class="main-container">
+        <header class="scroll-header">
+            <h1>The Adventurer's Survey</h1>
+            <p class="subtitle">Data, Interpretation, and Identity Correlations</p>
+            <div style="margin-top: 20px;">
+                <a href="index.html" class="return-link">⬅ Return to Standard Report</a>
+            </div>
+        </header>
+
+        <div class="journal-grid">
+            <section id="intro" class="journal-entry full-width">
+                <h2><span class="rune">I</span> Introduction</h2>
+                <p>This project surveyed 15 individuals about their Dungeons & Dragons characters. [cite_start]Over half the participants were new to D&D[cite: 1].</p>
+            </section>
+
+            <section id="demographics" class="journal-entry">
+                <h2><span class="rune">II</span> The Party Makeup</h2>
+                <div class="chart-wrapper"><h3>Experience Level</h3><canvas id="experienceChart"></canvas></div>
+                <div class="chart-wrapper"><h3>Age Range</h3><canvas id="ageChart"></canvas></div>
+                <div class="chart-wrapper"><h3>Gender Identity</h3><canvas id="genderChart"></canvas></div>
+            </section>
+
+            <section id="choices" class="journal-entry">
+                <h2><span class="rune">III</span> Archetypes</h2>
+                <div class="chart-wrapper"><h3>Character Race</h3><canvas id="raceChart"></canvas></div>
+                <div class="chart-wrapper"><h3>Character Class</h3><canvas id="classChart"></canvas></div>
+            </section>
+
+            <section id="motivations" class="journal-entry">
+                <h2><span class="rune">IV</span> The Call to Adventure</h2>
+                <div class="chart-wrapper"><h3>Motivations</h3><canvas id="motivationChart"></canvas></div>
+            </section>
+
+            <section id="correlations" class="journal-entry full-width">
+                <h2><span class="rune">V</span> Arcane Correlations</h2>
+                <div class="col-2">
+                    <div><h3>LGBTQ+ Players</h3><p>Gravitated toward Tieflings, Genasi, and Bards. Themes of "being between worlds" resonated strongly.</p></div>
+                    [cite_start]<div><h3>The Beginner's Heart</h3><p>Beginners had the highest emotional depth and self-reflection scores[cite: 1].</p></div>
+                </div>
+            </section>
+
+            <section id="reflection" class="journal-entry">
+                <h2><span class="rune">VI</span> Mirror of the Self</h2>
+                <div class="chart-wrapper"><h3>Reflection Scores</h3><canvas id="reflectionScoreChart"></canvas></div>
+                <div class="chart-wrapper"><h3>Avg by Experience</h3><canvas id="avgReflectionChart"></canvas></div>
+            </section>
+
+            <section id="conclusion" class="journal-entry full-width text-center">
+                <h2><span class="rune">VII</span> DM's Log</h2>
+                <p>Leading this project was a deeply rewarding experience. The collaborative aspect was a major success, despite scheduling challenges.</p>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="fantasy-charts.js"></script>
+</body>
+</html>
