@@ -76,16 +76,21 @@ body {
     pointer-events: none;
 }
 
-die {
+/* Base style for all dice shapes (Changed from 'die' to '.dice') */
+.dice {
     position: absolute;
     border-style: solid;
     border-width: 2px;
-    border-color: var(--accent-color); /* Add this */
+    border-color: var(--accent-color); /* Base Teal color */
     opacity: 0.7;
     animation: float 20s linear infinite alternate, spin 10s linear infinite;
+    /* Add gradient glow effect */
+    box-shadow: 0 0 10px 0 var(--accent-color), 0 0 20px 0 #ff00ff;
+    background: none;
 }
 
-d20 {
+/* D20 - Large Octagon/Circle (Changed from 'd20' to '.d20') */
+.d20 {
     width: 150px;
     height: 150px;
     top: 10%;
@@ -95,7 +100,7 @@ d20 {
     animation-timing-function: ease-in-out;
 }
 
-d20-alt {
+.d20-alt {
     width: 120px;
     height: 120px;
     top: 45%;
@@ -105,7 +110,8 @@ d20-alt {
     animation-timing-function: ease-in-out;
 }
 
-d12 {
+/* D12 - Pentagon-like shape (Changed from 'd12' to '.d12') */
+.d12 {
     width: 100px;
     height: 100px;
     top: 60%;
@@ -114,7 +120,7 @@ d12 {
     animation: float-reverse 25s linear infinite alternate, spin 15s linear infinite;
 }
 
-d12-alt {
+.d12-alt {
     width: 80px;
     height: 80px;
     top: 20%;
@@ -123,7 +129,8 @@ d12-alt {
     animation: float-reverse 28s linear infinite alternate, spin 18s linear infinite;
 }
 
-d8 {
+/* D8 - Square (Changed from 'd8' to '.d8') */
+.d8 {
     width: 50px;
     height: 50px;
     top: 85%;
@@ -132,7 +139,7 @@ d8 {
     animation-duration: 18s;
 }
 
-d8-alt {
+.d8-alt {
     width: 60px;
     height: 60px;
     top: 50%;
@@ -141,7 +148,7 @@ d8-alt {
     animation-duration: 22s;
 }
 
-d8-alt-2 {
+.d8-alt-2 {
     width: 70px;
     height: 70px;
     top: 30%;
@@ -150,40 +157,45 @@ d8-alt-2 {
     animation: float-reverse 20s linear infinite alternate, spin 12s linear infinite;
 }
 
-d4 {
+/* D4 - Triangle (Changed from 'd4' to '.d4') */
+.d4 {
     width: 0;
     height: 0;
     border-left: 50px solid transparent;
     border-right: 50px solid transparent;
-    border-bottom: 80px solid var(--accent-color); /* Add color here */
+    border-bottom: 80px solid var(--accent-color); /* Use solid color for reliable shape */
+    border-top: none; /* Override border-style default */
     top: 25%;
     right: 15%;
-    animation: float 40s linear infinite alternate, spin 10s linear infinite; /* Fixed spin duration */
+    /* Override base .dice border-color to prevent full box */
+    border-width: 0; 
+    animation: float 40s linear infinite alternate, spin 10s linear infinite;
 }
 
-d4-alt {
+.d4-alt {
     width: 0;
     height: 0;
     border-left: 40px solid transparent;
     border-right: 40px solid transparent;
     border-bottom: 65px solid var(--accent-color);
+    border-top: none;
+    border-width: 0;
     top: 70%;
     left: 30%;
     animation: float 35s linear infinite alternate, spin 14s linear infinite;
 }
 
-d6 {
+/* D6 - Square/Cube (Changed from 'd6' to '.d6') */
+.d6 {
     width: 75px;
     height: 75px;
     top: 15%;
     left: 70%;
     border-radius: 8px;
-    background: none;
-    border: 2px solid var(--accent-color);
     animation: float 25s linear infinite alternate, spin 16s linear infinite;
 }
 
-/* --- NAVIGATION & TYPOGRAPHY STYLES --- */
+/* --- NAVIGATION & TYPOGRAPHY STYLES (Existing) --- */
 .sidebar h2 {
     color: var(--accent-color);
     border-bottom: 2px solid var(--accent-color);
