@@ -1,38 +1,166 @@
+/* --- FANTASY VARIABLES --- */
 :root {
-    --bg-paper: #f3e5d0;
-    --bg-dark: #2c1b18;
-    --ink-color: #2b1b17;
-    --accent-red: #8a0303;
-    --accent-gold: #c5a059;
+    --bg-paper: #f3e5d0; /* Parchment color */
+    --bg-dark: #2c1b18;  /* Dark wood/leather color */
+    --ink-color: #2b1b17; /* Dark ink */
+    --accent-red: #8a0303; /* Blood/Wax Seal Red */
+    --accent-gold: #c5a059; /* Gold Leaf */
     --font-header: 'Cinzel', serif;
     --font-body: 'Fauna One', serif;
 }
+
 body {
     background-color: var(--bg-dark);
+    /* Subtle wood grain or texture effect */
     background-image: radial-gradient(#3e2b26 1px, transparent 1px);
     background-size: 20px 20px;
     color: var(--ink-color);
     font-family: var(--font-body);
     margin: 0;
     padding: 20px;
+    line-height: 1.6;
 }
-.main-container { max-width: 1200px; margin: 0 auto; }
-.scroll-header { text-align: center; margin-bottom: 40px; color: #fff; }
-.scroll-header h1 { font-family: var(--font-header); font-size: 3rem; border-bottom: 2px solid var(--accent-gold); display: inline-block; }
-.return-link { color: var(--accent-gold); text-decoration: none; font-size: 1.2rem; border: 1px solid var(--accent-gold); padding: 10px; border-radius: 5px; }
-.return-link:hover { background-color: var(--accent-gold); color: var(--bg-dark); }
 
-.journal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+/* --- LAYOUT CONTAINER --- */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- HEADER --- */
+.scroll-header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.scroll-header h1 {
+    font-family: var(--font-header);
+    font-size: 3rem;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    border-bottom: 2px solid var(--accent-gold);
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--accent-gold);
+}
+
+/* --- JOURNAL GRID (The "Pinboard" Layout) --- */
+.journal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+/* --- JOURNAL ENTRY CARDS (Parchment Style) --- */
 .journal-entry {
     background-color: var(--bg-paper);
     padding: 30px;
     border-radius: 4px;
     box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
     border: 1px solid #d1c4b0;
+    position: relative;
+    transition: transform 0.2s ease;
 }
-.full-width { grid-column: 1 / -1; }
-h2 { font-family: var(--font-header); color: var(--accent-red); border-bottom: 2px solid var(--ink-color); }
-h3 { font-family: var(--font-header); font-size: 1.3rem; margin-top: 25px; }
-.rune { color: var(--accent-gold); margin-right: 10px; }
-.col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-@media (max-width: 768px) { .col-2 { grid-template-columns: 1fr; } }
+
+.journal-entry:hover {
+    transform: translateY(-3px); /* Slight lift on hover */
+}
+
+/* Make certain sections span full width */
+.full-width {
+    grid-column: 1 / -1;
+}
+
+/* --- TYPOGRAPHY --- */
+h2 {
+    font-family: var(--font-header);
+    color: var(--accent-red);
+    font-size: 1.8rem;
+    border-bottom: 2px solid var(--ink-color);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+h3 {
+    font-family: var(--font-header);
+    color: var(--bg-dark);
+    font-size: 1.3rem;
+    margin-top: 25px;
+}
+
+.rune {
+    color: var(--accent-gold);
+    margin-right: 10px;
+}
+
+/* --- CHART CONTAINERS (FIXED SIZE) --- */
+.chart-wrapper {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    position: relative;
+    /* FIX: Force container to be visible and responsive */
+    width: 100%;
+    min-height: 300px; 
+    display: block; 
+}
+
+/* --- SPECIAL BOXES & LISTS --- */
+.highlight-box {
+    background-color: rgba(197, 160, 89, 0.2);
+    padding: 15px;
+    border-left: 4px solid var(--accent-gold);
+    margin: 20px 0;
+    font-style: italic;
+}
+
+.highlight-box.success { border-left-color: green; background-color: rgba(0, 128, 0, 0.1); }
+.highlight-box.challenge { border-left-color: var(--accent-red); background-color: rgba(138, 3, 3, 0.1); }
+
+.fancy-list {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: center;
+    font-family: var(--font-header);
+    font-weight: bold;
+}
+.fancy-list li { margin-bottom: 10px; }
+
+/* --- UTILITIES & LINKS --- */
+.col-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.text-center { text-align: center; }
+.large-text { font-size: 1.2rem; }
+
+.return-link {
+    color: var(--accent-gold);
+    text-decoration: none;
+    font-size: 1.2rem;
+    border: 1px solid var(--accent-gold);
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    transition: all 0.2s;
+}
+
+.return-link:hover {
+    background-color: var(--accent-gold);
+    color: var(--bg-dark);
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+    .journal-grid { grid-template-columns: 1fr; }
+    .col-2 { grid-template-columns: 1fr; }
+    .scroll-header h1 { font-size: 2rem; }
+}
